@@ -1,0 +1,24 @@
+<html>
+<head>
+
+</head>
+<body>
+<h3>Bill今天死了么</h3>
+<h1>杀死bill</h1>
+<h1>日期</h1>
+<h1 id="days">0</h1>
+</body>
+<script type="text/javascript">
+
+
+                        var startTime = new Date('2022-02-10 00:00:00'); // 开始时间
+        var endTime = new Date(); // 结束时间
+        var usedTime = endTime - startTime; // 相差的毫秒数
+        var days = Math.floor(usedTime / (24 * 3600 * 1000)); // 计算出天数
+        // alert(days);
+
+       document.getElementById('days').innerHTML = days;
+
+</script>
+
+</html>
