@@ -1,28 +1,69 @@
 <html>
+
+<style>
+    #bgImg {
+        height: 100%;
+        width: 100%;
+        background: url('static/a09e9698fd98d87b57e3d57356bc8410.jpeg') no-repeat;
+        background-size: cover;
+        position: absolute;
+        overflow: hidden;
+        color: white;
+    }
+</style>
 <head>
-
+    <title>杀死比尔2022</title>
 </head>
-<body>
-<h3>Bill今天死了么</h3>
-<h1>杀死bill</h1>
-<h1>日期</h1>
-<h1 id="days">0</h1>
-<h3>2022-02-11 17:00:00 over</h3>
+<body id="bgImg">
+<h3><span class="name">Bill</span>今天死了么</h3>
+<h1>杀死<span class="name">Bill</span></h1>
+<p>现在的年轻人只认得钱，其他什么都不懂。——《杀死比尔2》</p>
+<p>Fuckin' with your cash is the only thing you kids seem to understand. </p>
+<h1>Survived for <span id="days"></span> days</h1>
+<h3>to be continued... </h3>
 </body>
+<script>
+    let className = document.getElementsByClassName('name');
+
+    for (let value of className) {
+        value.innerHTML = "Fano";
+    }
+</script>
+
 <script type="text/javascript">
+    var startTime = new Date('2022-05-20 00:00:00'); // 开始时间
+    var endTime = new Date(); // 结束时间
+    var usedTime = endTime - startTime; // 相差的毫秒数
+    var days = Math.floor(usedTime / (24 * 3600 * 1000)); // 计算出天数
+    document.getElementById('days').innerHTML = days;
+</script>
 
-
-                        var startTime = new Date('2022-02-10 00:00:00'); // 开始时间
-        var endTime = new Date('2022-02-11 00:00:00'); // 结束时间
-        var usedTime = endTime - startTime; // 相差的毫秒数
-        var days = Math.floor(usedTime / (24 * 3600 * 1000)); // 计算出天数
-        // alert(days);
-
-       document.getElementById('days').innerHTML = days;
-
-
-
-
+<script type="text/javascript">
+    // json格式的字符串
+    var str = '[' +
+        '{name:"Junk*",live:"0",end:"2021-11-08 over"},' +
+        '{name:"Bil*",live:"0",end:"2022-02-11 over"},' +
+        '{name:"Supe*",live:"0",end:"2022-04-14 over"},' +
+        '{name:"Cassi*",live:"0",end:"2022-05-19 over"},' +
+        '{name:"Ch*",live:"0",end:"2022-05-20 over"},' +
+        '{name:"Fan*",live:"...",end:"..."},' +
+        '{name:"...",live:"...",end:""}' +
+        ']';
+    onload = function () {
+        var table = document.createElement("table");
+        table.border = "1";
+        var jsons = new Function("return " + str)();
+        for (var i = 0; i < jsons.length; i++) {
+            var tr = document.createElement("tr");
+            for (var k in jsons[i]) {
+                var td = document.createElement("td");
+                td.appendChild(document.createTextNode(jsons[i][k]));
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        document.getElementsByTagName("body")[0].appendChild(table);
+    };
 </script>
 
 </html>
